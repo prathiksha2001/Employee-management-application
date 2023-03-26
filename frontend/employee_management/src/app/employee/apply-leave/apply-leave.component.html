@@ -1,0 +1,99 @@
+<h2 style="text-align: center;" >Leave Policy and Management</h2>
+<div class="container">
+  <form class="mx-auto" style="width: 500px;float: left;" [formGroup]="leaveForm" (submit)="submitForm()">
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-2">
+        <label for="">Employee ID</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill" style="width: 35%">
+          <input matInput type="text" placeholder="" formControlName="emp_id" [disabled]="true">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+      <div class="col-2">
+        <label>Leave Type</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill" style="width: 35%">
+          <mat-select name="leave_type_id" required formControlName="leave_type_id" placeholder="Select a type">
+            <mat-option value="1">Sick Leave</mat-option>
+            <mat-option value="2">Privilege Leave</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <label for="">Start Date</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a date" name="start_date"
+            formControlName="start_date" [min]="minDate" #startDate>
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <label for="">End Date</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="endDatePicker" placeholder="Choose a date" name="end_date"
+            formControlName="end_date" [matDatepickerFilter]="filterEndDate"
+            #endDate>
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    
+    
+
+    <!-- <div class="row" style="margin-top: 10px;">
+      <div class="col-2">
+        <label for="">Start Date</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a date" name="start_date"
+            formControlName="start_date"  [min]="minDate" #startDate>
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker ></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <label for="">End Date</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill">
+          <input matInput [matDatepicker]="endDatePicker" placeholder="Choose a date" name="end_date"
+            formControlName="end_date" [min]="startDate.value">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-2">
+        <label for="">Reason</label>
+      </div>
+      <div class="col-10">
+        <mat-form-field appearance="fill">
+          <input matInput type="text" placeholder="" formControlName="reason">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="text-center pt-1 mb-5 pb-1" style="margin-right: 40px;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!leaveForm.valid">Apply</button>
+    </div>
+  </form>
+  <app-view-leave-balance style="float:right;width: 400px;margin-top: 0px;"></app-view-leave-balance>
+</div>

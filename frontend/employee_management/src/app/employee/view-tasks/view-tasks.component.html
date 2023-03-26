@@ -1,0 +1,67 @@
+<h2 style="text-align: center;" *ngIf="!isTasks">Tasks</h2>
+<table *ngIf="!isTasks">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due_date</th>
+        <th>Created_at</th>
+        <th>Updated_at</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let task of tasks; let i = index">
+        <tr>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.due_date }}</td>
+          <td>{{ task.created_at }}</td>
+          <td>{{ task.updated_at }}</td>
+          <td>
+            <ng-container *ngIf="!editing[i]; else editingStatus">
+              {{ task.status }}
+            </ng-container>
+            <ng-template #editingStatus>
+              <select [(ngModel)]="task.status">
+                <ng-container *ngIf="task.status === 'pending'">
+                    <option value="pending">Pending</option>
+                    <option value="started">Started</option>
+                    <option value="in progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                  </ng-container>
+                  <ng-container *ngIf="task.status === 'started'">
+                    <option value="pending">Pending</option>
+                    <option value="started">Started</option>
+                    <option value="in progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                  </ng-container>
+                  <ng-container *ngIf="task.status === 'in progress'">
+                    <option value="in progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                  </ng-container>
+                  
+                <!-- <option value="pending">Pending</option>
+                <option value="started">Started</option>
+                <option value="in progress">In Progress</option>
+                <option value="completed">Completed</option>                 -->
+              </select>
+            </ng-template>
+          </td>
+          <td>
+            <ng-container *ngIf="!editing[i]; else editingButtons">
+              <button (click)="editing[i] = true">Edit</button>
+            </ng-container>
+            <ng-template #editingButtons>
+              <button (click)="statusUpdate(task.id, task.status);editing[i] = false">Save</button>
+              <button (click)="editing[i] = false" style="background-color: red;">Cancel</button>
+            </ng-template>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  
+  
+  <h2 *ngIf="isTasks" style="font: Open Sans;margin-top: 27%;margin-left: 10%;">There are currently no leave applications to review.</h2>

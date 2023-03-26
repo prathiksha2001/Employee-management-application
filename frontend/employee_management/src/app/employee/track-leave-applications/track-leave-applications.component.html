@@ -1,0 +1,32 @@
+<h2 style="text-align: center;" *ngIf="isleaveApplication">Track Your Leave Application Status</h2>
+<table *ngIf="isleaveApplication">  
+    <thead>
+      <tr>
+        <!-- <th>Employee Email</th> -->
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Leave Type</th>
+        <th>Reason</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leaveapplication of leaveApplications">       
+          <!-- <td>{{leaveapplication.emp_id}}</td> -->
+          <td>{{leaveapplication.start_date}}</td>
+          <td>{{leaveapplication.end_date}}</td>
+          <td>{{leaveapplication.leave_type}}</td>
+          <td>{{leaveapplication.reason}}</td>
+          <td><button [ngClass]="{
+            'bg-success': leaveapplication.status === 'approved',
+            'bg-danger': leaveapplication.status === 'rejected',
+            'bg-warning': leaveapplication.status === 'pending'
+          }">
+            {{ leaveapplication.status }}</button>
+          </td>         
+      </tr>
+      
+      
+    </tbody>
+  </table>
+  <h2 *ngIf="!isleaveApplication" style="font: Open Sans;margin-top: 10%;margin-left: 20%;">You haven't applied leaves currently</h2>

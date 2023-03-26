@@ -1,0 +1,131 @@
+<h2 style="text-align: left;">Personal Info</h2>
+
+<div style="margin: 10px;">
+  <button style="color: white; background-color: darkslateblue; border: none; border-radius: 5px; padding: 10px;"
+  *ngIf="isProfileButton"
+  (click)="isProfileButton = false">
+Add Personal Info
+</button>
+
+
+    <form [formGroup]="employeeForm" *ngIf="!isProfileButton">
+        
+        <div>
+            <label style="display: inline-block; width: 100px;">First Name:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="firstname" >
+        </div>
+        <div>
+            <label style="display: inline-block; width: 100px;">Last Name:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="lastname" >
+        </div>
+        <div>
+            <label style="display: inline-block; width: 100px;">Gender:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="gender" >
+        </div>     
+        <div>
+            <label style="display: inline-block; width: 100px;">DOB:</label>
+            <input type="date" class="form-control" style="display: inline-block;" formControlName="dob" >
+        </div>     
+        <div>
+            <label style="display: inline-block; width: 100px;">Contact:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="contact" >
+          </div>         
+          <div style="display: flex;margin-top: 5px;">
+                <button style="color:darkslateblue"                
+                style="margin-left: 70px;"
+                (click)="toggleProfileEditMode();isProfileEditMode = true">Edit</button>
+                <button mat-raised-button color="primary"                
+                style="margin-left: 70px;"
+                *ngIf="isProfileEditMode"
+                (click)="saveProfileChanges();isProfileEditMode = false">Save</button>
+            </div>
+    </form>
+</div>
+
+<div>
+  <button style="color: white; background-color: darkslateblue; border: none; border-radius: 5px; padding: 10px;"
+  *ngIf="isAddressButton"
+  (click)="isAddressButton = false">Add Address</button>
+
+    <form [formGroup]="addressForm" *ngIf="!isAddressButton">
+        
+        <div>
+            <label style="display: inline-block; width: 100px;">STREET:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="street" >
+        </div>
+        <div>
+            <label style="display: inline-block; width: 100px;">CITY:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="city" >
+        </div>
+        <div>
+            <label style="display: inline-block; width: 100px;">STATE:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="state" >
+        </div>     
+        <div>
+            <label style="display: inline-block; width: 100px;">PINCODE:</label>
+            <input type="text" class="form-control" style="display: inline-block;" formControlName="zipcode" >
+        </div>                 
+          <div style="display: flex;margin-top: 5px;">
+                <button mat-raised-button color="primary"                
+                style="margin-left: 70px;"
+                (click)="toggleAddressEditMode();isAddressEditMode = true">Edit</button>
+                <button mat-raised-button style="color: green;"                
+                style="margin-left: 70px;"
+                *ngIf="isAddressEditMode"
+                (click)="saveAddressChanges();isAddressEditMode = false">Save</button>
+            </div>
+    </form>
+</div>
+
+
+  
+
+<!--<div style="display: flex; justify-content: space-between; margin-top: 5%;">
+    <button mat-raised-button color="primary" *ngIf="isProfileButton" 
+    (click)="showPersonalInfoForm = true" 
+    style="margin-left: 350px;">Add Personal Info</button>
+    <button mat-raised-button color="primary" (click)="showAddressForm = true" style="margin-right: 100px;">Add Address</button>
+</div>
+
+<mat-grid-list cols="2" rowHeight="2:1" style="margin-left: 200px;margin-top: 40px;">
+    <mat-grid-tile *ngIf="showPersonalInfoForm">
+      <form [formGroup]="employeeForm" style="margin-top: 100px;">
+        <mat-form-field>
+          <input matInput formControlName="firstname" placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="lastname" placeholder="Last Name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="gender" placeholder="Gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="dob" formControlName="dob" placeholder="Date of Birth">
+          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+          <mat-datepicker #dob></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field style="height: 115px; ">
+          <input matInput formControlName="contact" placeholder="Contact Number"  >
+        </mat-form-field>
+      </form>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="showAddressForm" >
+      <form [formGroup]="addressForm">
+        <mat-form-field>
+          <input matInput formControlName="street" placeholder="Street Address">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="city" placeholder="City">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="state" placeholder="State">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="zipcode" placeholder="Zip Code">
+        </mat-form-field>
+      </form>
+    </mat-grid-tile>
+  </mat-grid-list> -->

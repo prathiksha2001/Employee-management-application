@@ -1,0 +1,106 @@
+
+<div class="container"  style="margin-top: 120px; margin-left: 40px;display: flex;">
+
+  <form [formGroup]="managerAssign" (ngSubmit)="assignManager()" 
+    style="width: 300px;">
+
+    <div class="mb-3" style="width: 250px;">     
+        <label for="employee" class="form-label">Employee:</label>
+        <select id="employee" [(ngModel)]="selectedEmployee" (change)="onEmployeeSelect()" formControlName="employee_id" class="form-select">
+          <option *ngFor="let employee of employees" [value]="employee.id" >{{ employee.email }}</option>
+        </select>
+    </div>
+    <div class="mb-3" style="width: 250px;">
+      <label for="manager" class="form-label">Manager:</label>
+      <select id="manager" formControlName="manager_id" class="form-select">        
+        <option *ngFor="let manager of filteredManagers" [value]="manager.id">{{ manager.email }}</option>
+      </select>      
+    </div>
+    <button type="submit" class="btn btn-primary"
+    style="width: 250px;margin-top: 20px;">Assign</button>
+  </form>
+
+  <div  class="row" style="margin-top:-70px;margin-left: 80px; width: 40vw; text-align: center;justify-content: flex-end;">
+    <h2 style="text-align: center;"> Department List</h2>
+    <div class="col-md-12"style="margin-top:-90px">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>DEPARTMENT ID</th>        
+                  <th>DEPARTMENT</th>
+                  <th>MANAGER</th>                        
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let department of departments; ">
+                  <td>{{department.department_id}}</td>        
+                  <td>{{department.name}}</td>                 
+                  <td>{{department.email}}</td>                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Manager selection -->
+<!-- <label for="manager">Manager:</label>
+<input id="manager" [(ngModel)]="selectedManager" placeholder="Search for a manager..." 
+     (input)="searchManager($event)">
+
+<ul *ngIf="managerResults.length > 0">
+  <li *ngFor="let manager of managerResults" (click)="selectManager(manager)">{{ manager.email }}</li>
+</ul>
+
+<!-- <button (click)="openAssignManagerModal()">Assign Manager</button>
+
+
+
+<div class="modal" [ngClass]="{'is-active': showModal}">
+  <div class="modal-background" (click)="closeAssignManagerModal()"></div>
+  <div class="modal-content">
+    <div class="box">
+      <h2 class="title">Assign Manager</h2>
+      <form #assignManagerForm="ngForm" (ngSubmit)="submitAssignManagerForm(assignManagerForm)">
+        <div class="field">
+          <label class="label">Employee:</label>
+          <div class="control">
+            <select name="employee" [(ngModel)]="selectedEmployee" required>
+              <option value="" disabled selected>Select an employee</option>
+              <option *ngFor="let employee of employees" [value]="employee.id">{{ employee.email }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Manager:</label>
+          <div class="control">
+            <select name="manager" [(ngModel)]="selectedManager" (input)="searchManager($event)">
+              <option value="" disabled selected>Search for a manager...</option>
+              <option *ngFor="let manager of managerResults" [value]="manager.email">{{ manager.email }}</option>
+            </select>
+            <ul *ngIf="managerResults.length > 0">
+              <li *ngFor="let manager of managerResults" (click)="selectManager(manager)">{{ manager.email }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-primary">Assign Manager</button>
+            <button type="button" class="button is-link" (click)="closeAssignManagerModal()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="closeAssignManagerModal()"></button>
+</div> -->
+
+

@@ -1,0 +1,33 @@
+
+   <div class="row" style="margin-top: 10px;">
+    <h2 style="text-align: center;"> Employee List</h2>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Employee ID</th>        
+                  <th>Email</th>
+                  <th>Department</th>
+                  <th>Designation</th>
+                  <th>Date of Joining</th>                         
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of employees">
+                  <td>{{employee.id}}</td>        
+                  <td>{{employee.email}}</td>
+                  <td>{{employee.department_name}}</td>
+                  <td>{{employee.designation}}</td>
+                  <td>{{employee.doj}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,39 @@
+
+<div class="admin-dashboard">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Dashboard</h3>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a routerLink="view-personal-profile">Profile</a></li>
+        <li><a routerLink="view-task">View Task</a></li>
+        <li><a routerLink="apply-leave">Apply Leave</a></li>       
+        <li><a routerLink="track-leave-application">Track your Leave Applications</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+      </ul>
+      
+    </div>
+    <div class="main-content" style="margin-left: 210px;margin-top: 80px;">
+        <router-outlet></router-outlet>
+  </div>
+
+  <!-- <ul class="sidebar-menu">
+    <li><a (click)="selectLink('view-personal-profile')">Profile</a></li>
+    <li><a (click)="selectLink('view-task')">View Task</a></li>
+    <li><a (click)="selectLink('apply-leave')">Apply Leave</a></li>
+    <li><a (click)="selectLink('track-leave-application')">Track your Leave Applications</a></li>
+    <li><a (click)="logout()">Logout</a></li>
+  </ul>
+  <div *ngIf="shouldRenderComponent('view-personal-profile')">
+    <app-profile></app-profile>
+  </div>
+  <div *ngIf="shouldRenderComponent('view-task')">
+    <app-view-tasks></app-view-tasks>
+  </div>
+  <div *ngIf="shouldRenderComponent('apply-leave')">
+    <app-apply-leave></app-apply-leave>
+  </div> 
+  <div *ngIf="shouldRenderComponent('track-leave-application')">
+    <app-track-leave-applications></app-track-leave-applications>
+  </div>
+</div> -->

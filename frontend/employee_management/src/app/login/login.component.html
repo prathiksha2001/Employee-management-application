@@ -1,0 +1,77 @@
+
+<section class="h-100 gradient-form" style="margin-top: -20px;background-color: #f2f2f2;" ><!-- style="background-color: #eee;" -->
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h2 class="mb-4">We are more than just a company</h2>
+                  <h3 class="small mb-2">Unlocking the value of digital
+                     transformation through emerging technologies by adding fuel to the 
+                     thriving property technology industry.</h3>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="assets/images/stldgitlal-logo.png"
+                      style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">We are The STL Team</h4>
+                  </div>
+  
+                  <form [formGroup]="loginForm" (submit)="submitForm()">
+                    <p>Please login to your account</p>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label"></label>
+                      <input type="email" 
+                              formControlName = "username"
+                              class="form-control"
+                              placeholder="username"
+                              [ngClass]="{'is-invalid': loginForm.get('username')?.invalid && loginForm.get('username')?.touched}"
+                              (input)="clearError()" />
+                              <span *ngIf="loginForm.get('username')?.valid === false 
+                                            && loginForm.get('username')?.touched === true"                               
+                                    class="help-block">
+                                    Please enter a valid username
+                              </span>
+                      
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" 
+                              formControlName = "password" 
+                              class="form-control" 
+                              placeholder="password"
+                              [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+                              (input)="clearError()"/>
+                      <span *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                        class = "help-block">
+                        Please enter a valid password!
+                      </span>
+                      
+                    </div>
+                    <div *ngIf="showError" 
+                          class="error-message">Invalid username or password</div>
+                    
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" 
+                              type="submit"
+                              > Login </button>
+                      <!-- <a class="text-muted" href="#!"> Forgot password? </a> -->
+                    </div> 
+                   
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,32 @@
+<h2 style="text-align: center;" *ngIf="isleaveApplication">Employee Leave Request: Manager's Action Required</h2>
+<table *ngIf="isleaveApplication">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Email</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Reason</th>
+        <th>Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leaveapplication of leaveApplications">       
+          <td>{{leaveapplication.emp_id}}</td>
+          <td>{{leaveapplication.employee_email}}</td>
+          <td>{{leaveapplication.start_date}}</td>
+          <td>{{leaveapplication.end_date}}</td>
+          <td>{{leaveapplication.reason}}</td>
+          <td>{{leaveapplication.type.name}}</td>
+          <td>
+            <button (click)="statusUpdate(leaveapplication, 'approved')">Approve</button>
+            <button (click)="statusUpdate(leaveapplication, 'rejected')" style="background-color:rgba(255, 0, 0, 0.792)">Reject</button>
+          </td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+  <h2 *ngIf="!isleaveApplication" style="font: Open Sans;margin-top: 20%;margin-left: 10%;">
+    There are currently no leave applications to review.</h2>

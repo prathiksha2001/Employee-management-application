@@ -1,0 +1,47 @@
+<div class="admin-dashboard">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Dashboard</h3>
+      </div>
+      
+        <ul class="sidebar-menu">
+          <li><a routerLink="view-personal-profile">Profile</a></li>          
+          <li><a routerLink="view-employee-details">View Employee Details</a></li>
+          <li><a routerLink="view-task"  *ngIf="isManagerHasManager">View Task</a></li>
+          <li><a routerLink="assign-task">Assign Task</a></li> 
+          <li><a routerLink="apply-leave" *ngIf="isManagerHasManager">Apply Leave</a></li>       
+          <li><a routerLink="track-leave-application" *ngIf="isManagerHasManager">Track your Leave Applications</a></li>                   
+          <li><a routerLink="view-leave-applications">View Leave Applications</a></li>          
+          <li><a routerLink="view-task-updates">View Task Updates</a></li>
+          <li><a (click)="logout()">Logout</a></li>
+        </ul>
+    </div> 
+    <div class="main-content" style="margin-left: 210px;margin-top: 80px;">
+      <router-outlet></router-outlet>
+  </div>
+
+  <!-- <ul class="sidebar-menu"></ul>
+        <li><a (click)="selectLink('view-personal-profile')">Profile</a></li>
+        <li><a (click)="selectLink('view-employee-details')">View Employee Details</a></li>
+        <li><a (click)="selectLink('assign-task')">Assign Task</a></li>
+        <li><a (click)="selectLink('view-leave-applications')">View Leave Applications</a></li>
+        <li><a (click)="selectLink('view-task-updates')">View Task Updates</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+      </ul>
+      div *ngIf="shouldRenderComponent('view-personal-profile')">
+        <app-profile></app-profile>
+      </div>
+      <div *ngIf="shouldRenderComponent('view-employee-details')">
+        <app-view-employee-details></app-view-employee-details>
+      </div>
+      <div *ngIf="shouldRenderComponent('assign-task')">
+        <app-assign-task></app-assign-task>
+      </div>
+      <div *ngIf="shouldRenderComponent('view-leave-applications')">
+        <app-view-leave-applications></app-view-leave-applications>
+      </div>
+      <div *ngIf="shouldRenderComponent('view-task-updates')">
+        <app-view-task-updates></app-view-task-updates>
+      </div>
+    </div>
+   -->

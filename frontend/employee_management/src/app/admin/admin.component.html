@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="overflow-x: auto;">
+<div class="admin-dashboard" >
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin Dashboard</h3>
+      </div>
+     
+      <ul class="sidebar-menu">
+        <li><a routerLink="view-personal-profile">Profile</a></li>
+        <li><a routerLink="all-employees">All Employees</a></li>
+        <li><a routerLink="employee-registration">Employee Registration</a></li>
+        <!-- <li><a routerLink="view-department">View Departments</a></li> -->
+        <li><a routerLink="assign-manager">Assign Manager</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+    <div class="main-content" style="margin-left: 210px;margin-top: 80px;">
+      <router-outlet></router-outlet>
+      
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- <div *ngIf="shouldRenderComponent('view-personal-profile')">
+  <app-profile></app-profile>
+</div>
+<div *ngIf="shouldRenderComponent('all-employees')">
+  <app-view-employees></app-view-employees>
+</div>
+<div *ngIf="shouldRenderComponent('employee-registration')">
+  <app-employee-registration></app-employee-registration>
+</div> -->
+<!-- <div *ngIf="shouldRenderComponent('add-department')">
+  <app-a-department></app-add-department>
+</div> -->
+<!-- <div *ngIf="shouldRenderComponent('assign-manager')">
+  <app-assign-manager></app-assign-manager>
+</div>       -->
+<!-- <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Admin Dashboard</h3>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="#">All Employees</a></li>
+      <li><a href="#">Employee Registration</a></li>
+      <li><a href="#">Add Department</a></li>
+      <li><a href="#">Assign Manager</a></li>
+    </ul>
+  </div> -->
+  
+<!-- <app-employee-registration></app-employee-registration>
+<app-assign-manager></app-assign-manager> -->

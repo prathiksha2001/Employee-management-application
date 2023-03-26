@@ -1,0 +1,96 @@
+
+<div class="container">
+    <form class="mx-auto" 
+          style="width: 600px;margin-top: 100px;"
+          [formGroup]="registrationForm" (submit)="submitForm()">
+    <div class="row flex-row">
+      <div class="col-6">
+        <label for="" style="margin-left: 3px;">Email id</label>
+        <input type="text" 
+        class="form-control" 
+        placeholder="email" 
+        style="margin-top: 10px;"
+        formControlName="email">
+      </div>
+      <div class="col-6">
+        <label for="">Password</label>
+        <input type="password" 
+        class="form-control" 
+        placeholder="password" 
+        style="margin-top: 10px;"
+        formControlName="password">
+      </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Designation</label>            
+        </div>
+        <div class="col-10">
+        <input type="text" 
+        class="form-control" 
+        placeholder="Designation"
+        formControlName="designation">
+    </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Department</label>            
+        </div>
+        <div class="col-10">
+          <select name="department" 
+          required style="height: 35px; width: 350px;"
+          formControlName="dept_id">
+            <option value="">Select a type</option>
+            <option value="{{department.department_id }}" *ngFor="let department of departments">{{department.name}}</option>
+        </select>
+        <!-- <input type="text" class="form-control" placeholder="Department"> -->
+    </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Date of Joining</label>            
+        </div>
+        <div class="col-10">            
+            <div style="position: relative;">
+                <input matInput [matDatepicker]="picker" 
+                        placeholder="choose a date"  
+                        name="doj"
+                        style="height: 35px; "
+                        formControlName="doj">
+                <mat-datepicker-toggle matSuffix [for]="picker" style="margin-right: 320px;"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>       
+        </div>
+    </div>
+    <!-- <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Job Role</label>            
+        </div>
+        <div class="col-10">
+            <input type="text" class="form-control" >
+        </div>
+    </div> -->
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label>User Type:</label>
+        </div>
+        <div class="col-10">
+            <select name="userType" 
+              required 
+              style="height: 35px; width: 350px;"
+              formControlName="user_type">
+                <option value="">Select a type</option>
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+            </select>
+        </div>        
+      </div>
+      <div class="text-center pt-1 mb-5 pb-1" style="margin-right: 40%;margin-top: 10px;">
+        <button class="btn btn-primary btn-block fa-lg" 
+                type="submit"
+                >Create</button>
+        <!-- <a class="text-muted" href="#!"> Forgot password? </a> -->
+      </div>
+</form>
+</div>
+  

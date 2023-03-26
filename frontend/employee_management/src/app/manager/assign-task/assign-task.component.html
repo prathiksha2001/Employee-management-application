@@ -1,0 +1,76 @@
+<h2 style="text-align: center;"> Assign Task</h2>
+<div class="container">
+    <form class="mx-auto" 
+          style="width: 600px;margin-top: 40px;"
+          [formGroup]="assignTask" (submit)="submitForm()">
+          <div class="row" style="margin-top: 15px;">
+            <div class="col-2">
+                <label for="">Title</label>            
+            </div>
+            <div class="col-10">
+                <input type="text" 
+                class="form-control" 
+                placeholder="Task Title"
+                formControlName="title">
+             </div>
+          </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Description</label>            
+        </div>
+        <div class="col-10">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Description about task"
+            formControlName="description">
+        </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Email id</label>            
+        </div>
+        <div class="col-10">
+            <select name="department" 
+            required style="height: 35px; width: 350px;"
+            formControlName="emp_id">
+                <option value="">Select an Employee</option>
+                <option value="{{employee.id}}" *ngFor="let employee of employees">{{employee.email}}</option>
+            </select>
+        <!-- <input type="text" class="form-control" placeholder="Department"> -->
+        </div>
+    </div>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-2" style="margin-top: 5px;">
+            <label for="">Due Date</label>            
+        </div>
+        <div class="col-10">            
+            <div>
+                <input matInput [matDatepicker]="picker" 
+                        placeholder="choose a date"  
+                        name="doj"
+                        style="height: 35px;margin-top: -5px;"
+                        formControlName="due_date" [min]="minDate">
+                <mat-datepicker-toggle matSuffix [for]="picker" style="margin-left: -40px;"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>       
+        </div>
+    </div>
+    <!-- <div class="row" style="margin-top: 15px;">
+        <div class="col-2">
+            <label for="">Job Role</label>            
+        </div>
+        <div class="col-10">
+            <input type="text" class="form-control" >
+        </div>
+    </div> -->
+   
+      <div class="text-center pt-1 mb-5 pb-1" style="margin-right: 40%;margin-top: 10px;">
+        <button class="btn btn-primary btn-block fa-lg" 
+                type="submit"
+                [disabled]="!assignTask.valid"
+                >Assign</button>
+        <!-- <a class="text-muted" href="#!"> Forgot password? </a> -->
+      </div>
+</form>
+</div>
+  
